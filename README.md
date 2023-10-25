@@ -1,2 +1,1 @@
-# Code
-Compilation R project
+## Compilation of my project
