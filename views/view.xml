@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo> 
+
+        <record id="view_form_fasilitas" model="ir.ui.view">
+            <field name="name">view fasilitas</field>
+            <field name="model">fasilitas.hotel</field>
+            <field name="arch" type="xml">
+                <form string="form">
+                    <sheet>
+                        <group>
+                            <field name="name_fasilitas"/>
+                            <field name="code_fasilitas"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_tree_fasilitas" model="ir.ui.view">
+            <field name="name">view tree fasilitas</field>
+            <field name="model">fasilitas.hotel</field>
+            <field name="arch" type="xml">
+                <tree string="Tree kamar">
+                        <field name="name_fasilitas"/>
+                        <field name="code_fasilitas"/>
+                </tree>
+            </field>
+        </record>  
+
+        <!-- <record id="view_form_tipe" model="ir.ui.view">
+            <field name="name">view tipe</field>
+            <field name="model">tipe.kamar</field>
+            <field name="arch" type="xml">
+                <form string="form">
+                    <sheet>
+                        <group>
+                            <field name="name_tipe"/>
+                            <field name="fasilitas_kamar"/>
+                            <field name="harga"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record> -->
+
+    <record id="view_form_tipe" model="ir.ui.view">
+    <field name="name">view tipe</field>
+    <field name="model">tipe.kamar</field>
+    <field name="arch" type="xml">
+        <form string="form">
+            <sheet>
+                <notebook>
+                    <page string="Main Information">
+                        <group>
+                            <field name="name_tipe"/>
+                            <field name="harga"/>
+                        </group>
+                    </page>
+
+                    <page string="Fasilitas Kamar">
+                        <group>
+                            <field name="fasilitas_kamar" widget="many2many_tags"/>
+                        </group>
+                    </page>
+
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+        <record id="view_tree_tipe" model="ir.ui.view">
+            <field name="name">view tree tipe</field>
+            <field name="model">tipe.kamar</field>
+            <field name="arch" type="xml">
+                <tree string="Tree kamar">
+                    <field name="name_tipe"/>
+                    <field name="fasilitas_kamar" widget="many2many_tags"/>
+                    <field name="harga"/>
+                </tree>
+            </field>
+        </record>  
+
+
+        <!-- <record id="view_form_kamar" model="ir.ui.view">
+            <field name="name">kamar</field>
+            <field name="model">kamar.hotel</field>
+            <field name="arch" type="xml">
+                <form string="form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="tipe_kamar" widget="selection"/>
+                            <field name="fasilitas_kamar"/>
+                            <field name="harga_kamar"/>
+                            <field name="lantai"/>
+                            <field name="panjang_kamar"/>
+                            <field name="lebar_kamar"/>
+                            <field name="luas_kamar" readonly="1"/>
+                            <field name="status_kamar"/>
+                            <field name="transaksi_booking"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record> -->
+
+    <record id="view_form_kamar" model="ir.ui.view">
+        <field name="name">kamar.hotel.form</field>
+        <field name="model">kamar.hotel</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="tipe_kamar" widget="selection"/>
+                            <field name="fasilitas_kamar"/>
+                            <field name="harga_kamar"/>
+                            <field name="lantai"/>
+                            <field name="panjang_kamar"/>
+                            <field name="lebar_kamar"/>
+                            <field name="luas_kamar" readonly="1"/>
+                            <field name="status_kamar"/>
+                            <field name="transaksi_booking"/>
+                        </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+<record id="view_form_kamar" model="ir.ui.view">
+    <field name="name">kamar.hotel.form</field>
+    <field name="model">kamar.hotel</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="tipe_kamar" widget="selection"/>
+                    <field name="harga_kamar"/>
+                    <field name="lantai"/>
+                    <field name="panjang_kamar"/>
+                    <field name="lebar_kamar"/>
+                    <field name="luas_kamar" readonly="1"/>
+                    <field name="status_kamar"/>
+                    <field name="transaksi_booking"/>
+                </group>
+                <notebook>
+                    <page string="Fasilitas Kamar">
+                        <group>
+                            <field name="fasilitas_kamar"/>
+                        </group>
+                    </page>
+                    <page string="Transaksi">
+                        <group>
+                            <field name="customer_id"/>
+                            <field name="checkin_date"/>
+                        </group>
+                    </page>                    
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+
+    <record id="view_tree_kamar" model="ir.ui.view">
+        <field name="name">view tree kamar</field>
+        <field name="model">kamar.hotel</field>
+        <field name="arch" type="xml">
+            <tree string="Tree kamar">
+                <field name="name"/>
+                <field name="tipe_kamar"/>
+                <field name="fasilitas_kamar"/>
+                <field name="harga_kamar"/> 
+                <field name="lantai"/>
+                <field name="lebar_kamar"/>
+                <field name="panjang_kamar"/>
+                <field name="luas_kamar"/>
+                <field name="status_kamar"/> 
+                <field name="transaksi_booking"/> 
+                <field name="description"/>
+        </tree>
+        </field>
+    </record>    
+
+
+    <record id="view_kanban_kamar" model="ir.ui.view">
+        <field name="name">view_kanban_kamar</field>
+        <field name="model">kamar.hotel</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="o_kanban_card">
+                            <div class="o_kanban_primary">
+                                <div class="o_kanban_content">
+                                    <div class="o_kanban_title">
+                                        <field name="name"/>
+                                    </div>
+                                    <div class="o_kanban_subtitle">
+                                        Price: <field name="harga_kamar"/>
+                                    </div>
+                                    <div class="o_kanban_text">
+                                        Facilities: <field name="fasilitas_kamar"/>
+                                    </div>
+                                    <!-- Add more fields as needed for your Kanban view -->
+                                    <div class="o_kanban_footer">
+                                        <field name="description"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+
+
+
+
+</odoo>
